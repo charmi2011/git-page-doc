@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bootstrap 4 project documentation theme for developers</title>
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link
+    href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+    rel='stylesheet' type='text/css'>
+  <!-- FontAwesome JS -->
+  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"
+    integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous">
+  </script>
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Plugins CSS -->
+  <link rel="stylesheet" href="assets/plugins/prism/prism.css">
+
+  <!-- Theme CSS -->
+  <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
+
+</head>
+
+<body class="body-green">
+  <div class="page-wrapper">
+    <!-- ******Header****** -->
+    <header id="header" class="header">
+      <div class="container">
+        <div class="branding">
+          <h1 class="logo">
+            <a href="index.html">
+              <span aria-hidden="true" class="icon_documents_alt icon"></span>
+              <span class="text-highlight">Centric</span>
+            </a>
+          </h1>
+
+        </div>
+        <!--//branding-->
+
+        <div class="top-search-box">
+          <form class="form-inline search-form justify-content-center" action="" method="get">
+
+            <input type="text" placeholder="Search..." name="search" class="form-control search-input">
+
+            <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>
+
+          </form>
+        </div>
+
+      </div>
+      <!--//container-->
+    </header>
+    <!--//header-->
+    <div class="doc-wrapper">
+      <div class="container">
+        <div id="doc-header" class="doc-header text-center">
+          <h1 class="doc-title"><i class="icon fa fa-paper-plane"></i> Centric Server </h1>
+        </div>
+        <!--//doc-header-->
+        <div class="doc-body row">
+          <div class="doc-content col-md-9 col-12 order-1">
+            <div class="content-inner">
+              <section id="download-section" class="doc-section">
+                <h2 class="section-title">Introduction</h2>
+                <div class="section-block">
+                  <p>A programmable automation server.
+                  </p>
+                </div>
+              </section>
+              <!--//doc-section-->
+              <section id="installation-section" class="doc-section">
+                <h2 class="section-title">Installation</h2>
+                <div id="step1" class="section-block">
+                  <h3 class="block-title">Install centric</h3>
+                  <div class="code-block">
+                    <p><code>$ npm install -g centric</code></p>
+                  </div>
+                  <!--//code-block-->
+                </div>
+                <!--//section-block-->
+                <div id="step2" class="section-block">
+                  <h3 class="block-title">Option 1 - Use centic scaffold</h3>
+                  <p>Centric scaffold will create a basic centric project with examples that you can modify to suit your
+                    needs.
+                  </p>
+                  <h6>Run the below command in the folder you want to create the project.</h6>
+                  <div class="code-block">
+                    <p><code>$ centric scaffold</code></p>
+                  </div>
+                </div>
+                <div id="step3" class="section-block">
+                  <h3 class="block-title">Option 2 - Create the files yourself</h3>
+                  <p>Folder Structure for a centric project.
+                  </p>
+                  <div class="code-block">
+                    <p><code>
+                        &nbsp . <br>
+                        &nbsp ├── services &nbsp&nbsp # Service Files<br>
+                        &nbsp ├── tasks &nbsp&nbsp&nbsp&nbsp&nbsp # Task Files<br>
+                        &nbsp ├── config.js &nbsp # Configuration file</code></p><br>
+                  </div>
+                </div>
+                <!--//section-block-->
+                <div id="step4" class="section-block">
+                  <h3 class="block-title">Start the server</h3>
+                  <p>After adding scaffold files, start the server using the command:
+                  </p>
+                  <div class="code-block">
+                    <p><code>$ centric start</code></p>
+                  </div>
+                  <h6>And you are done !</h6>
+                </div>
+                <!--//section-block-->
+              </section>
+              <!--//doc-section-->
+
+              <section id="file-section" class="doc-section">
+                <h2 class="section-title">Scaffold file understanding</h2>
+                <!-- <div class="section-block">
+                                    <p>
+                                        <a href="https://prismjs.com/" target="_blank">PrismJS</a> is used as the syntax highlighter here. You can <a href="https://prismjs.com/download.html" target="_blank">build your own version</a> via their website should you need to.
+                                    </p>
+                                </div> -->
+                <!--//section-block-->
+                <div id="service" class="service-block">
+                  <div class="code-block">
+                    <h4>Services</h4>
+                    <p>The services folder contains all your projects service files. A service file has the following
+                      signature.</p>
+                    <pre><code class="language-markup">
+  module.exports = async function ({ config }) {
+    // Service Logic goes here...
+    const testLogging = function () {
+      console.log('this is a test')
+    }
+
+    return { testLogging }
+  }
+</code></pre>
+                    <p>Services are useful for any logic you wish to share between tasks (like a database connection).
+                    </p>
+                  </div>
+                  <!--//code-block-->
+                </div>
+                <!--//services-block-->
+                <div id="config" class="config-block">
+                  <div class="code-block">
+                    <h4>config.js</h4>
+
+                    <p>The config file contains the configurations details for development as well as production
+                      environment.</p>
+                    <p>You can add more configurations detail as per your need and requirement in the config.js file.
+                    </p>
+                    <p>The format of the configuration file <code>config.js</code> goes as:</p>
+                    <pre><code class="language-markup">
+    export const environment = {
+      baseURL: 'base_url',
+      arango: {
+        url: 'arangodb_url',
+        database: 'database_name'
+      },
+      services: [
+        'service_file_name'
+      ],
+      // other configurations according to your need
+    }
+                          </code></pre>
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>keyword</th>
+                            <th>description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>baseURL</td>
+                            <td>The base url where the centric points for web UI</td>
+                          </tr>
+                          <tr>
+                            <td>arango</td>
+                            <td>The arango key contains the url and database name for the arangodb used as centric
+                              database.</td>
+                          </tr>
+                          <tr>
+                            <td>services</td>
+                            <td>An array of strings consisting the name of services file which fall inside the services
+                              folder and are being used all over the project</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <!--//table-responsive-->
+                  </div>
+                  <!--//code-block-->
+                </div>
+                <div id="task" class="task-block">
+                  <div class="code-block">
+                    <h4>Task</h4>
+                    <p>Create a new file in the tasks folder that matches the following signature.</p>
+                    <div class="callout-block callout-success">
+                      <div class="content">
+                        <h6 class="callout-title">NOTE:</h6>
+                        <p>The name of the task in the centric web interface is equivalent to the name of the task file
+                          name.</p>
+                      </div>
+                      <!--//content-->
+                    </div>
+                    <pre><code class="language-markup">
+  module.exports = {
+    description: 'task description', // Viewable in the web UI
+    locks: null,
+    defaultData: function () {
+      // Return the default data for the task.
+      // This will be the default "taskData" in the run method.
+      return {}
+    },
+    run: async function ({ config, services, opData, saveOpData, taskData, saveTaskData, logInfo, logWarning, logError, isCancelled }) {
+      // Run method is called when the task is executed.
+      // Logic for the task goes here.
+    }
+  }
+                    </code></pre>
+
+                    <h5>Description</h5>
+                    <pre><code class="language-markup">description: 'task description', // Viewable in the web UI</code></pre>
+                    <p>The value in the description key states the description of the task and is viewable in the web UI
+                      in the tasks list.</p>
+
+                    <h5>Locks</h5>
+                    <pre><code class="language-markup">  locks: 'lockName'</code></pre>
+                    <p>The locks behaves as a lock over the task. </p>
+                    <p>In case you need to restrict two tasks from running togethar/parallely because of depenedencies
+                      between them, you can add same `lockName ` to both. </p>
+                    <p>If same `locks` string is used for more than one task it prevents other tasks having locks same
+                      as of running task from executing untill the running task execution is completed.</p>
+
+                    <h5>defaultData</h5>
+                    <pre><code class="language-markup">
+  defaultData: function () {
+    // Return the default data for the task.
+    // This will be the default "taskData" in the run method.
+    return {}
+  },
+                    </code></pre>
+                    <p>The defaultData returns the default provided task data for an individual task unless the
+                      task-data is not present.</p>
+
+                    <h5>run method</h5>
+                    <p>The run method provides following listed parameters:</p>
+                    <pre><code class="language-markup">
+  run: async function ({ config, services, opData, saveOpData, taskData, saveTaskData, logInfo, logWarning, logError, isCancelled }) {
+    // Task logic
+  }
+                    </code></pre>
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Argument</th>
+                            <th>Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td> config </td>
+                            <td>configuration exported from config.js</td>
+                          </tr>
+                          <tr>
+                            <td> services </td>
+                            <td>object containing all exported values from all service files</td>
+                          </tr>
+                          <tr>
+                            <td> opData </td>
+                            <td>Current running task's operation-data.</td>
+                          </tr>
+                          <tr>
+                            <td> saveOpData </td>
+                            <td>Method to be called to save the curremt operation data.</td>
+                          </tr>
+                          <tr>
+                            <td> taskData </td>
+                            <td>Task data of the current running task.</td>
+                          </tr>
+                          <tr>
+                            <td> saveTaskData </td>
+                            <td>Method to be called to save the current running task data.</td>
+                          </tr>
+                          <tr>
+                            <td> logInfo </td>
+                            <td>logInfo is method to log the info entry showing information log of the operation.</td>
+                          </tr>
+                          <tr>
+                            <td> logWarning </td>
+                            <td>logWarning is method to log the warnings entry showing warnings of the operation.</td>
+                          </tr>
+                          <tr>
+                            <td> logError </td>
+                            <td>logError is method to log the errors entry showing errors of the operation.</td>
+                          </tr>
+                          <tr>
+                            <td> isCancelled </td>
+                            <td>Method to check whether the task is active for running or has been cancelled.</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <p>The screen-shot below shows the list of tasks under the tasks folder.</p>
+
+                    <img class="img-fluid" src="assets/images/demo/screenshot_tasks.png" />
+                  </div>
+                  <!--//code-block-->
+                </div>
+
+              </section>
+              <!--//doc-section-->
+
+              <section id="project-screenshots" class="doc-section">
+                <h2 class="section-title">Project-screenshots</h2>
+                <div id="schedule-task" class="schedule-task-block">
+                  <div class="code-block">
+                    <h4>Schedule a task</h4>
+                    <p>Go to the tasks list page and click over the task item for which need to schedule a task and
+                      follow the following steps:</p>
+                    <h5>1. Enable the task</h5>
+                    <h5>2. Click the Create Schedule button <br>
+                      <img class="img-fluid" src="assets/images/demo/screenshot_taskSchedule1.png"
+                       />
+                    </h5>
+                    <h5>3. Create Schdule form page will be displayed.</h5>
+
+                    <h6>Add new schedule</h6>
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Field</th>
+                            <th>Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td> Name </td>
+                            <td>Name of the schedule</td>
+                          </tr>
+                          <tr>
+                            <td> cronTime </td>
+                            <td>Time interval to determine how often to run the task</td>
+                          </tr>
+                          <tr>
+                            <td> enabled? </td>
+                            <td>Enable or disable this schedule</td>
+                          </tr>
+                          <tr>
+                            <td> data </td>
+                            <td>Set the tasks operation data when started with this schedule</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <h5>4. Click the Save button.
+                      <img class="img-fluid" src="assets/images/demo/screenshot_taskSchedule2.png"
+                       />
+                    </h5>
+                  </div>
+                  <!--//code-block-->
+                </div>
+
+                <div id="create-user" class="create-user-block">
+                  <div class="code-block">
+                    <h4>Creating a new user</h4>
+                    <p>Select Users menu from home page, users list page looks like
+                      <img class="img-fluid" src="assets/images/demo/screenshot_users.png" />
+                    </p>
+
+                    <p>To create new user click over "CREATE USER" button and add the detail of the user to be created.
+                    </p>
+
+                  </div>
+                  <!--//code-block-->
+                </div>
+
+                <div id="task-history" class="task-history-block">
+                  <div class="code-block">
+                    <h4>Task History</h4>
+                    <p>The task processed are listed in the history menu under sidemenu list.
+                      <img class="img-fluid" src="assets/images/demo/screenshot_history.png" />
+                    </p>
+
+                    <p>
+                      - It provides the list of task operations processed with following details. <br>
+                      - Operation Number. <br>
+                      - Task name of respective operation. <br>
+                      - Status of the operation (i.e) Completed, Terminated, Active, Failed, Cancelled. <br>
+                      - Run date of the operation. <br>
+                      - Entry count: The number of logs written while the processing of the task operation. <br>
+                      - Last entry message and data. <br>
+                    </p>
+
+                  </div>
+                  <!--//code-block-->
+                </div>
+                <div id="dashboard" class="dashboard-block">
+                  <div class="code-block">
+                    <h4>Dashboard</h4>
+                    <p>The dashboard page provides the list of currently running task detail.
+                      <img class="img-fluid" src="assets/images/demo/screenshot_dashboard.png" />
+                    </p>
+                  </div>
+                  <!--//code-block-->
+                </div>
+              </section>
+              <!--//doc-section-->
+            </div>
+            <!--//content-inner-->
+          </div>
+          <!--//doc-content-->
+          <div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
+            <div id="doc-nav" class="doc-nav">
+
+              <nav id="doc-menu" class="nav doc-menu flex-column sticky">
+                <a class="nav-link scrollto" href="#download-section">Introduction</a>
+                <a class="nav-link scrollto" href="#installation-section">Installation</a>
+                <nav class="doc-sub-menu nav flex-column">
+                  <a class="nav-link scrollto" href="#step1">Install centric</a>
+                  <a class="nav-link scrollto" href="#step2">Option 1 - Use centic scaffold</a>
+                  <a class="nav-link scrollto" href="#step3">Option 2 - Create the files yourself</a>
+                  <a class="nav-link scrollto" href="#step4">Start the server</a>
+                </nav>
+                <!--//nav-->
+                <a class="nav-link scrollto" href="#file-section">Scaffold files</a>
+                <nav class="doc-sub-menu nav flex-column">
+                  <a class="nav-link scrollto" href="#service">Services</a>
+                  <a class="nav-link scrollto" href="#config">config.js</a>
+                  <a class="nav-link scrollto" href="#task">Task</a>
+                </nav>
+                <!--//nav-->
+                <a class="nav-link scrollto" href="#project-screenshots">Project-screenshots</a>
+                <nav class="doc-sub-menu nav flex-column">
+                  <a class="nav-link scrollto" href="#schedule-task">Schedule task</a>
+                  <a class="nav-link scrollto" href="#create-user">Creating new user</a>
+                  <a class="nav-link scrollto" href="#task-history">Task History</a>
+                  <a class="nav-link scrollto" href="#dashboard">Dashboard</a>
+
+                </nav>
+                <!-- //nav  -->
+              </nav>
+              <!--//doc-menu-->
+
+            </div>
+          </div>
+          <!--//doc-sidebar-->
+        </div>
+        <!--//doc-body-->
+      </div>
+      <!--//container-->
+    </div>
+    <!--//doc-wrapper-->
+  <!-- Main Javascript -->
+  <script type="text/javascript" src="assets/plugins/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>
+  <script type="text/javascript" src="assets/plugins/stickyfill/dist/stickyfill.min.js"></script>
+  <script type="text/javascript" src="assets/js/main.js"></script>
+
+</body>
+
+</html>
